@@ -1,2 +1,2 @@
 #!/bin/sh
-python3 /userdata/disk.py &
+python3 /userdata/system/disk.py &
