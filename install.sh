@@ -14,12 +14,12 @@ echo -e "${BLUE}==========================================================${NC}"
 # Disclaimer
 echo This script will install the Batocera Disk Player mod.
 read -p "DISCLAIMER : The autor(s) are not responsible if anything goes wrong. Do you still want to continue ? (y/n)" -n 1 -r
-echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    echo "Exiting..."
-    exit 1
-fi
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "Exiting..."
+        exit 1
+    fi
 
 echo -e "${BLUE}Creating mount point folder...${NC}"
 mkdir -p /media/disk
