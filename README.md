@@ -1,7 +1,7 @@
 # batocera-disk-player
 Install the addon :
 
-wget batodisc.xyz/get.sh && bash get.sh
+wget batodisc.xyz/get.sh && child +X && bash get.sh
 
 
 WIP
