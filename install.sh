@@ -37,7 +37,7 @@ if [ -f "$CUSTOM_SH_FILE" ]; then
     echo "The $CUSTOM_SH_FILE file exist. Modificating... "
     # Vérifie si la ligne est déjà présente pour éviter les doublons
     if ! grep -q "$LINE_TO_ADD" "$CUSTOM_SH_FILE"; then
-        echo "Ajout de la ligne \"$LINE_TO_ADD\" au fichier $CUSTOM_SH_FILE."
+        echo "Adding the Batocera Disk Player service to $CUSTOM_SH_FILE..."
         echo "$LINE_TO_ADD" >> "$CUSTOM_SH_FILE"
     else
         echo "No need to change anything."
