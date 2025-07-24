@@ -7,6 +7,9 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
+CUSTOM_SH_FILE="/userdata/system/custom.sh"
+LINE_TO_ADD="python3 /userdata/system/disk.py &"
+
 
 echo -e "${BLUE}==========================================================${NC}"
 echo -e "${YELLOW}              Batocera Disk Player Installer            ${NC}"
@@ -29,13 +32,23 @@ mkdir -p /media/disk
 
 
 echo -e "${BLUE}Installing startup script...${NC}"
-if [ ! -f "/userdata/system/custom.sh" ]; then
-    echo "#!/bin/bash" > "/userdata/system/custom.sh"
+# Vérifie si le fichier custom.sh existe
+if [ -f "$CUSTOM_SH_FILE" ]; then
+    echo "The $CUSTOM_SH_FILE file exist. Modificating... "
+    # Vérifie si la ligne est déjà présente pour éviter les doublons
+    if ! grep -q "$LINE_TO_ADD" "$CUSTOM_SH_FILE"; then
+        echo "Ajout de la ligne \"$LINE_TO_ADD\" au fichier $CUSTOM_SH_FILE."
+        echo "$LINE_TO_ADD" >> "$CUSTOM_SH_FILE"
+    else
+        echo "No need to change anything."
+    fi
 else
-    sed -i "1i${#!/bin/bash}" "/userdata/system/custom.sh"
+    echo "The $CUSTOM_SH_FILE dosen't exist. Creating one..."
+    echo "$LINE_TO_ADD" > "$CUSTOM_SH_FILE"
+    # Rend le fichier exécutable
+    chmod +x "$CUSTOM_SH_FILE"
+    echo "Bash startup script ready."
 fi
-sed -i "2i${python3 /userdata/system/disk.py &}" "/userdata/system/custom.sh"
-
 
 # Old method, deprecated and will be removed soon
 # rm -rf custom.sh
