@@ -1,6 +1,7 @@
 #!/bin/bash
 clear
 
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -10,6 +11,7 @@ NC='\033[0m'
 echo -e "${BLUE}==========================================================${NC}"
 echo -e "${YELLOW}              Batocera Disk Player Installer            ${NC}"
 echo -e "${BLUE}==========================================================${NC}"
+
 
 # Disclaimer
 echo This script will install the Batocera Disk Player mod.
@@ -21,17 +23,30 @@ then
     exit 1
 fi
 
+
 echo -e "${BLUE}Creating mount point folder...${NC}"
 mkdir -p /media/disk
 
+
 echo -e "${BLUE}Installing startup script...${NC}"
-rm -rf custom.sh
-wget -P /userdata/system https://raw.githubusercontent.com/Lepplex/batocera-disk-player/refs/heads/main/custom.sh
+if [ ! -f "/userdata/system/custom.sh" ]; then
+    echo "#!/bin/bash" > "/userdata/system/custom.sh"
+else
+    sed -i "1i${#!/bin/bash}" "/userdata/system/custom.sh"
+fi
+sed -i "2i${python3 /userdata/system/disk.py &}" "/userdata/system/custom.sh"
+
+
+# Old method, deprecated and will be removed soon
+# rm -rf custom.sh
+# wget -P /userdata/system https://raw.githubusercontent.com/Lepplex/batocera-disk-player/refs/heads/main/custom.sh
+
 
 echo -e "${BLUE}Installing Batocera Disc Player service...${NC}"
 rm -rf disk.py
 wget -P /userdata/system https://raw.githubusercontent.com/Lepplex/batocera-disk-player/refs/heads/main/disk.py
  
+
 echo -e "${BLUE}Creating symlinks...${NC}"
 ln -sf /media/disk/3do /userdata/roms/3do
 ln -sf /media/disk/3ds /userdata/roms/3ds
