@@ -70,7 +70,8 @@ def detect_game_dirs(base_path):
             found_dirs.append(folder)
     return found_dirs
 
-found = detect_game_dirs("/media/disk")
+mountpoint = "/media/disk"
+found = detect_game_dirs(mountpoint)
 
 def get_disk_signature(path):
     if not os.path.ismount(path):
