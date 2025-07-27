@@ -32,10 +32,10 @@ mkdir -p /media/disk
 
 
 echo -e "${BLUE}Installing startup script...${NC}"
-# Vérifie si le fichier custom.sh existe
+# Check if custom.sh file exist
 if [ -f "$CUSTOM_SH_FILE" ]; then
     echo "The $CUSTOM_SH_FILE file exist. Modificating... "
-    # Vérifie si la ligne est déjà présente pour éviter les doublons
+    # Check if the startup ligne if already there
     if ! grep -q "$LINE_TO_ADD" "$CUSTOM_SH_FILE"; then
         echo "Adding the Batocera Disk Player service to $CUSTOM_SH_FILE..."
         echo "$LINE_TO_ADD" >> "$CUSTOM_SH_FILE"
@@ -45,18 +45,13 @@ if [ -f "$CUSTOM_SH_FILE" ]; then
 else
     echo "The $CUSTOM_SH_FILE dosen't exist. Creating one..."
     echo "$LINE_TO_ADD" > "$CUSTOM_SH_FILE"
-    # Rend le fichier exécutable
     chmod +x "$CUSTOM_SH_FILE"
     echo "Bash startup script ready."
 fi
 
-# Old method, deprecated and will be removed soon
-# rm -rf custom.sh
-# wget -P /userdata/system https://raw.githubusercontent.com/Lepplex/batocera-disk-player/refs/heads/main/custom.sh
-
 
 echo -e "${BLUE}Installing Batocera Disc Player service...${NC}"
-rm -rf disk.py
+rm -rf /userdata/system/disk.py
 wget -P /userdata/system https://raw.githubusercontent.com/Lepplex/batocera-disk-player/refs/heads/main/disk.py
  
 
