@@ -104,8 +104,6 @@ def disc_inserted():
         print("Kodi is running, skipping...")
     else:
         if found:
-            subprocess.run(["mkdir", "/media/disk"])
-            subprocess.run(["mount", "/dev/sr0", "/media/disk"])
             subprocess.run(["killall", "emulationstation"])
             subprocess.run(["emulationstation"])
         else:
@@ -122,8 +120,9 @@ if __name__ == '__main__':
                 # Change of states, for debugging purposes only, ignore it otherwise
                 print(f"Changing state : {status_str(code)}")
                 print(code)
-                print(code)
                 if code == 4:
+                    subprocess.run(["mkdir", "/media/disk"])
+                    subprocess.run(["mount", "/dev/sr0", "/media/disk"])
                     monitor_disc
                 if code == 1:
                         if previous_state == 1:
