@@ -108,7 +108,7 @@ if __name__ == '__main__':
                 # Change of states, for debugging purposes only, ignore it otherwise
                 print(f"Changing state : {status_str(code)}")
                 print(code)
-                if code == 4 and previous_state != 4:
+                if code == 4:
                     subprocess.run(["mkdir", "/media/disk"])
                     subprocess.run(["mount", "/dev/sr0", "/media/disk"])
                     found = detect_game_dirs(MOUNTPOINT)
@@ -121,7 +121,7 @@ if __name__ == '__main__':
                             subprocess.run(["emulationstation"])
                     else:
                         print("Unsupported disc inserted. Skipping...")
-                if code == 1 and previous_state == 4:
+                if code == 1:
                             if kodi_running("kodi"):
                                 print("Kodi is running, skipping...")
                             else:
