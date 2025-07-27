@@ -123,7 +123,7 @@ if __name__ == '__main__':
                             verify_needed = 1
                     else:
                         print("Unsupported disc inserted. Skipping...")
-                if code == 1 and verify_needed == 1:
+                if code == 2 and verify_needed == 1:
                             if kodi_running("kodi"):
                                 print("Kodi is running, skipping...")
                             else:
