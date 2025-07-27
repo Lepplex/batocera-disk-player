@@ -126,7 +126,7 @@ if __name__ == '__main__':
                 if code == 4:
                     monitor_disc
                 if code == 1:
-                        if is_program_running("kodi"):
+                        if kodi_running("kodi"):
                             print("Kodi is running, skipping...")
                         else:
                             subprocess.run(["umount", "/media/disk"])
