@@ -97,7 +97,7 @@ def monitor_disc():
             print(f"Not the same disc : {current_signature}")
             last_signature = current_signature
             if current_signature:
-                disc_inserted
+                disc_inserted()
 
 def disc_inserted():
     if is_program_running("kodi"):
@@ -123,7 +123,7 @@ if __name__ == '__main__':
                 if code == 4:
                     subprocess.run(["mkdir", "/media/disk"])
                     subprocess.run(["mount", "/dev/sr0", "/media/disk"])
-                    monitor_disc
+                    monitor_disc()
                 if code == 1:
                         if previous_state == 1:
                             if kodi_running("kodi"):
