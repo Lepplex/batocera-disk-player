@@ -126,13 +126,13 @@ if __name__ == '__main__':
                 if code == 4:
                     monitor_disc
                 if code == 1:
-                        if kodi_running("kodi"):
-                            print("Kodi is running, skipping...")
-                        else:
-                            subprocess.run(["umount", "/media/disk"])
-                            subprocess.run(["killall", "emulationstation"])
-                            subprocess.run(["emulationstation"])
-
+                        if previous_state == 1:
+                            if kodi_running("kodi"):
+                                print("Kodi is running, skipping...")
+                            else:
+                                subprocess.run(["umount", "/media/disk"])
+                                subprocess.run(["killall", "emulationstation"])
+                                subprocess.run(["emulationstation"])
                 previous_state = code
             time.sleep(1)
     except KeyboardInterrupt:
