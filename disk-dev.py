@@ -68,37 +68,9 @@ def detect_game_dirs(base_path):
             found_dirs.append(folder)
     return found_dirs
 
-def get_disk_signature(path):
-    if not os.path.ismount(path):
-        return None
-    items = []
-    for root, dirs, files in os.walk(path):
-        for d in dirs:
-            items.append(os.path.relpath(os.path.join(root, d), path))
-        for f in files:
-            items.append(os.path.relpath(os.path.join(root, f), path))
-    if not items:
-        return "EMPTY"  # If disc is empty
-    items.sort()
-    hash_obj = hashlib.md5()
-    for item in items:
-        hash_obj.update(item.encode())
-    return hash_obj.hexdigest()
-
-#def disc_inserted():
-#    if kodi_running("kodi"):
-#        print("Kodi is running, skipping...")
-#    else:
-#        found = detect_game_dirs(MOUNTPOINT)
-#        if found:
-#            print(f"Game folders found: {found}")
-#            subprocess.run(["killall", "emulationstation"])
-#            subprocess.run(["emulationstation"])
-#        else:
-#            print("Unsupported disc inserted. Skipping...")
-
 # Batocera Disk Player service
 # NOTE : the script will "pause" if Kodi is running, because Kodi handle the disc drive itself.
+# The "print" lines are for debugging.
 verify_needed = 0
 if __name__ == '__main__':
     try:
@@ -106,7 +78,6 @@ if __name__ == '__main__':
         while True:
             code = check_disc(DEV)
             if code != previous_state:
-                # Change of states, for debugging purposes only, ignore it otherwise
                 print(f"Changing state : {status_str(code)}")
                 print(code)
                 if code == 4:
