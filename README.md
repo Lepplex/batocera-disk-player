@@ -4,4 +4,4 @@ Install the addon :
 wget batodisc.xyz/get.sh && chmod +x && bash get.sh
 
 
-WIP
+**WIP, shoukd not be used yet**
