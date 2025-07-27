@@ -85,27 +85,17 @@ def get_disk_signature(path):
         hash_obj.update(item.encode())
     return hash_obj.hexdigest()
 
-def monitor_disc():
-    last_signature = None
-    while True:
-        current_signature = get_disk_signature(MOUNTPOINT)
-        if current_signature != last_signature:
-            print(f"Not the same disc : {current_signature}")
-            last_signature = current_signature
-            if current_signature:
-                disc_inserted()
-
-def disc_inserted():
-    if kodi_running("kodi"):
-        print("Kodi is running, skipping...")
-    else:
-        found = detect_game_dirs(MOUNTPOINT)
-        if found:
-            print(f"Game folders found: {found}")
-            subprocess.run(["killall", "emulationstation"])
-            subprocess.run(["emulationstation"])
-        else:
-            print("Unsupported disc inserted. Skipping...")
+#def disc_inserted():
+#    if kodi_running("kodi"):
+#        print("Kodi is running, skipping...")
+#    else:
+#        found = detect_game_dirs(MOUNTPOINT)
+#        if found:
+#            print(f"Game folders found: {found}")
+#            subprocess.run(["killall", "emulationstation"])
+#            subprocess.run(["emulationstation"])
+#        else:
+#            print("Unsupported disc inserted. Skipping...")
 
 # Batocera Disk Player service
 # NOTE : the script will "pause" if Kodi is running, because Kodi handle the disc drive itself.
@@ -118,12 +108,20 @@ if __name__ == '__main__':
                 # Change of states, for debugging purposes only, ignore it otherwise
                 print(f"Changing state : {status_str(code)}")
                 print(code)
-                if code == 4:
+                if code == 4 and previous_state != 4:
                     subprocess.run(["mkdir", "/media/disk"])
                     subprocess.run(["mount", "/dev/sr0", "/media/disk"])
-                    monitor_disc()
-                if code == 1:
-                        if previous_state == 1:
+                    found = detect_game_dirs(MOUNTPOINT)
+                    if found:
+                        print(f"Game folders found: {found}")
+                        if kodi_running("kodi"):
+                            print("Kodi is running, skipping...")
+                        else:
+                            subprocess.run(["killall", "emulationstation"])
+                            subprocess.run(["emulationstation"])
+                    else:
+                        print("Unsupported disc inserted. Skipping...")
+                if code == 1 and previous_state == 4:
                             if kodi_running("kodi"):
                                 print("Kodi is running, skipping...")
                             else:
