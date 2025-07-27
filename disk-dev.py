@@ -100,7 +100,7 @@ def monitor_disc():
                 disc_inserted()
 
 def disc_inserted():
-    if is_program_running("kodi"):
+    if kodi_running("kodi"):
         print("Kodi is running, skipping...")
     else:
         if found:
