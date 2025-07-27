@@ -99,6 +99,7 @@ def get_disk_signature(path):
 
 # Batocera Disk Player service
 # NOTE : the script will "pause" if Kodi is running, because Kodi handle the disc drive itself.
+verify_needed = 0
 if __name__ == '__main__':
     try:
         previous_state = None
