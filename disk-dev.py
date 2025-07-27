@@ -119,15 +119,17 @@ if __name__ == '__main__':
                         else:
                             subprocess.run(["killall", "emulationstation"])
                             subprocess.run(["emulationstation"])
+                            verify_needed = 1
                     else:
                         print("Unsupported disc inserted. Skipping...")
-                if code == 1:
+                if code == 1 and verify_needed == 1:
                             if kodi_running("kodi"):
                                 print("Kodi is running, skipping...")
                             else:
                                 subprocess.run(["umount", "/media/disk"])
                                 subprocess.run(["killall", "emulationstation"])
                                 subprocess.run(["emulationstation"])
+                                verify_needed = 0
                 previous_state = code
             time.sleep(1)
     except KeyboardInterrupt:
