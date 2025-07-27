@@ -15,8 +15,6 @@ CDS_DRIVE_NOT_READY  = 3
 CDS_DISC_OK          = 4
 
 DEV = '/dev/sr0' # Batocera default disc drive path is sr0 
-mountpoint = "/media/disk"  # ou le point de montage détecté
-found = detect_game_dirs(mountpoint)
 game_dirs = """
 3do,3ds,abuse,adam,advision,amiga1200,amiga500,amigacd32,amigacdtv,amstradcpc,apfm1000,apple2,apple2gs,arcadia,archimedes,arduboy,astrocde,atari2600,atari5200,atari7800,atari800,atarist,atom,atomiswave,bbc,cl128,c20,c64,camplynx,cannonball,cavestory,cdi,cdogs,cgenius,channelf,chihiro,coco,colecovision,commanderx16,corsixth,cplus4,crvision,daphne,devilutionx,doom3,dos,dreamcast,dxx-rebirth,easyrpg,ecwolf,eduke32,electron,etlegacy,fallout1-ce,fallout2-ce,fbneo,fds,flash,flatpak,fm7,fmtowns,fpinball,fury,gamate,gameandwatch,gamecom,gamecube,gamegear,gamepock,gb,gb2players,gba,gbc,gbc2players,gmaster,gp32,gx4000,gzdoom,hcl,hurrican,ikemen,intellivision,iortcw,jaguar,jaguarcd,jazz2,laser310,lcdgames,lowresnx,lutro,lynx,macintosh,mame,mastersystem,megadrive,megaduck,model2,model3,moonlight,mrboom,msu-md,msx1,msx2,msx2+,msxturbor,mugen,multivision,n64,n64dd,namco2x6,naomi,naomi2,nds,neogeo,neogeocd,nes,ngp,ngpc,o2em,odcommander,openbor,openjazz,openlara,pc88,pc98,pcengine,pcenginecd,pcfx,pdp1,pet,pico,pico8,plugnplay,pokemini,ports,prboom,ps2,ps3,psp,psvita,psx,pv1000,pygame,pyxel,quake3,raze,reminiscence,rott,samcoupe,satellaview,saturn,scummvm,sdlpop,sega32x,segacd,sg1000,sgb,singe,snes,snes-msu1,socrates,solarus,sonic3-air,sonic-mania,sonicretro,spectravideo,steam,sufami,superbroswar,supergrafx,supervision,supracan,systemsp,theforceengine,thextech,thomson,ti99,tic80,triforce,tutor,tyrian,tyrquake,uzebox,vc4000,vectrex,vgmplay,videopacplus,vircon32,virtualboy,vis,vitaquake2,vpinball,vsmile,wasm4,wii,wiiu,windows,windows_installers,wswan,wswanc,x1,x68000,xash3d_fwgs,xbox
 """.replace("\n", "").split(",")
@@ -71,6 +69,8 @@ def detect_game_dirs(base_path):
         if os.path.isdir(path):
             found_dirs.append(folder)
     return found_dirs
+
+found = detect_game_dirs("/media/disk")
 
 def get_disk_signature(path):
     if not os.path.ismount(path):
