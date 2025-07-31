@@ -86,7 +86,7 @@ if __name__ == '__main__':
                     found = detect_game_dirs(MOUNTPOINT)
                     if found:
                         print(f"Game folders found: {found}")
-                        if kodi_running("kodi"):
+                        if kodi_running("batocera-kodi"):
                             print("Kodi is running, skipping...")
                         else:
                             subprocess.run(["killall", "emulationstation"])
