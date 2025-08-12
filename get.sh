@@ -28,7 +28,7 @@ do
             rm -- "$0"
             break
             ;;
-        "Vérifier l'état du système")
+        "Uninstall BDP")
             echo "Vérification de l'état du système..."
             wget https://batodisc.xyz/uninstall.sh
             chmod +x uninstall.sh
