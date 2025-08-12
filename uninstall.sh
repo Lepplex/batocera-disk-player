@@ -32,7 +32,7 @@ if [ -f "$BATODISC_INSTALLED" ]; then
     rm -rf /media/disk
 
     echo -e "${BLUE}Uninstalling startup script...${NC}"
-    sed -i "/${LINE_TO_REMOVE}/d" "$CUSTOM_SH_FILE"
+    sed -i "#${LINE_TO_REMOVE}#d" "$CUSTOM_SH_FILE"
 
     echo -e "${BLUE}Removing symlinks...${NC}"
     unlink /userdata/roms/3do/3do
