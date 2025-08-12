@@ -26,8 +26,8 @@ The ROMs should be placed in a sub-folder with the same name that Batocera uses 
 
 For example:  
 Super NES ROMs: *snes*  
-Nintendo DS: *nds*  
-<p align="center"><img src="image-1.png" width="800"></p>
+Nintendo DS: *nds* 
+<p align="center"><img src="assets/image-1.png" width="800"></p>
 
 ## 🧐 Why?
 All video game consoles have their own respective physical games *(even if, sadly, this tends to disappear)*.  
