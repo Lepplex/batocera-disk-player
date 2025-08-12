@@ -23,6 +23,7 @@ echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     echo "Exiting..."
+    rm -- "$0"
     exit 1
 fi
 
@@ -273,6 +274,8 @@ echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     echo "Job done, have fun !"
+    rm -- "$0"
     exit 1
 fi
+rm -- "$0"
 reboot

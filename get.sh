@@ -4,6 +4,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
+clear
 
 echo -e "${BLUE}=====================================================${NC}"
 echo -e "${YELLOW}              Batocera Disk Player Setup           ${NC}"
@@ -24,6 +25,7 @@ do
             wget https://batodisc.xyz/install.sh
             chmod +x install.sh
             bash install.sh
+            rm -- "$0"
             break
             ;;
         "Vérifier l'état du système")
@@ -31,10 +33,12 @@ do
             wget https://batodisc.xyz/uninstall.sh
             chmod +x uninstall.sh
             bash uninstall.sh
+            rm -- "$0"
             break
             ;;
         "Quitter")
             echo "Goodbye !"
+            rm -- "$0"
             break
             ;;
         *) 

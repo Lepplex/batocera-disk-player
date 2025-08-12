@@ -45,10 +45,13 @@ if [ -f "$BATODISC_INSTALLED" ]; then
     if [[ ! $REPLY =~ ^[Yy]$ ]]
     then
         echo "Job done, goodbye !"
+        rm -- "$0"
         exit 1
     fi
+    rm -- "$0"
     reboot
 
 else
     echo "Batocera Disk Player is not installed."
+    rm -- "$0"
 fi
