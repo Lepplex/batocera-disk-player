@@ -37,6 +37,8 @@ BUT, that's not the case for Batocera! That's why I decided to change this.
 This project has been inspired by the amazing [BUA](https://github.com/batocera-unofficial-addons/batocera-unofficial-addons).
 
 ## ⚠️ DISCLAIMER
-This addon will **NOT make you able to read original game discs**! This is meant to be used with discs that are burned specifically for this purpose.  
+This addon will **NOT make you able to read original game discs**! This is meant to be used with discs that are burned specifically for this purpose (i call them Batodiscs).  
 The author(s) of the addon are not responsible for anything going wrong on your machine *(although no issues are expected to occur)*.  
-Also, this addon is completely **unaffiliated with Batocera or BUA**.
+Also, this addon is completely **unaffiliated with Batocera or BUA**. 
+
+Keep in mind that this was a small project I worked on. I also wanted to use it as an opportunity to learn some programming and design.
