@@ -25,6 +25,7 @@ do
             wget https://batodisc.xyz/install.sh
             chmod +x install.sh
             bash install.sh
+            rm -rf install.sh.*
             rm -- "$0"
             break
             ;;
@@ -33,11 +34,13 @@ do
             wget https://batodisc.xyz/uninstall.sh
             chmod +x uninstall.sh
             bash uninstall.sh
+            rm -rf uninstall.sh.*
             rm -- "$0"
             break
             ;;
         "Exit")
             echo "Goodbye !"
+            rm -rf get.sh.*
             rm -- "$0"
             break
             ;;
