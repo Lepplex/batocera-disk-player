@@ -21,7 +21,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Install BDP")
-            echo "Laucnhing installation script..."
+            echo "Launching installation script..."
             wget https://batodisc.xyz/install.sh
             chmod +x install.sh
             bash install.sh
@@ -30,7 +30,7 @@ do
             break
             ;;
         "Uninstall BDP")
-            echo "Vérification de l'état du système..."
+            echo "Launching uninstalltion script..."
             wget https://batodisc.xyz/uninstall.sh
             chmod +x uninstall.sh
             bash uninstall.sh
