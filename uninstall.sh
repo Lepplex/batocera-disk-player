@@ -16,7 +16,7 @@ echo -e "${BLUE}============================================================${NC
 # Checking if Batocera Disk Player is installed
 if [ -f "$BATODISC_INSTALLED" ]; then
 
-    read -p "Do you really want to uninstall Batocera Disk Player ?" -n 1 -r
+    read -p "Do you really want to uninstall Batocera Disk Player ? (Y/N)" -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]
     then

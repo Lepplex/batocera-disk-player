@@ -14,7 +14,7 @@ echo -e "Welcome to the Batocera Disk Player setup !"
 echo -e "What do you want to do ?"
 
 
-PS3="Your choice (choose a number) :"
+PS3="Your choice (choose a number and confirm with Enter) :"
 options=("Install BDP" "Uninstall BDP" "Quitter")
 # Menu
 select opt in "${options[@]}"
