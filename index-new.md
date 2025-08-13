@@ -17,6 +17,7 @@ OR, in one command:
 ```
 wget batodisc.xyz/get.sh && chmod +x get.sh && bash get.sh
 ```
+Note that this is currently made for the PC version of Batocera. Other varients should be tested soon.
 ## 💿 How to use it?
 Just follow the installation steps, burn your disc, and insert it into a disc drive connected to your Batocera system (internal or external)!
 

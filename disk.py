@@ -59,7 +59,7 @@ def check_disc(device):
             print(f"Erreur inconnue : {e}", file=sys.stderr)
         return CDS_NO_INFO
 
-# This is to check if the disc if really a Batocera Disc Player compatible disc.
+# This is to check if the disc if really a Batocera Disc Player compatible disc (Batodisc).
 def detect_game_dirs(base_path):
     found_dirs = []
     for folder in game_dirs:
