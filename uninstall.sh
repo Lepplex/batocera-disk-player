@@ -6,7 +6,7 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 CUSTOM_SH_FILE="/userdata/system/custom.sh"
 LINE_TO_REMOVE="python3 /userdata/system/disk.py &"
-BATODISC_INSTALLED="/userdata/system/disk.py"
+BDP_INSTALLED="/userdata/system/disk.py"
 clear
 
 echo -e "${BLUE}============================================================${NC}"
@@ -14,7 +14,7 @@ echo -e "${YELLOW}              Batocera Disk Player Uninstaller            ${NC
 echo -e "${BLUE}============================================================${NC}"
 
 # Checking if Batocera Disk Player is installed
-if [ -f "$BATODISC_INSTALLED" ]; then
+if [ -f "$BDP_INSTALLED" ]; then
 
     read -p "Do you really want to uninstall Batocera Disk Player ? (Y/N)" -n 1 -r
     echo
