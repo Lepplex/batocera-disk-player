@@ -28,6 +28,7 @@ if [ -f "$BATODISC_INSTALLED" ]; then
         drive_status=$(grep "drive status:" /proc/sys/dev/cdrom/info | cut -f3)
         if [ "$drive_status" = "4" ]; then
             echo "A disc is inserted. Ejecting..."
+            eject
         fi
     fi
 
