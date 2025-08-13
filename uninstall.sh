@@ -25,7 +25,7 @@ if [ -f "$BATODISC_INSTALLED" ]; then
     fi
 
     if lsblk | grep -q sr0; then
-        echo "A disc is inserted. Ejecting..."
+        echo "Opening the disc drive to ensure there is no disc..."
         eject
     fi
 
