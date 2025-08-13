@@ -24,7 +24,7 @@ if [ -f "$BATODISC_INSTALLED" ]; then
         exit 1
     fi
 
-    if mountpoint -q /media/disk; then
+    if mount | grep -q "/media/disk"; then
         echo "A disc is inserted. Ejecting..."
         eject
     fi
