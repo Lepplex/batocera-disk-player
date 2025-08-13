@@ -15,7 +15,7 @@ echo -e "What do you want to do ?"
 
 
 PS3="Your choice (choose a number and confirm with Enter) :"
-options=("Install BDP" "Uninstall BDP" "Quitter")
+options=("Install BDP" "Uninstall BDP" "Exit")
 # Menu
 select opt in "${options[@]}"
 do
@@ -36,7 +36,7 @@ do
             rm -- "$0"
             break
             ;;
-        "Quitter")
+        "Exit")
             echo "Goodbye !"
             rm -- "$0"
             break
