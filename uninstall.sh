@@ -24,12 +24,9 @@ if [ -f "$BATODISC_INSTALLED" ]; then
         exit 1
     fi
 
-    if [ -f /proc/sys/dev/cdrom/info ]; then
-        drive_status=$(grep "drive status:" /proc/sys/dev/cdrom/info | cut -f3)
-        if [ "$drive_status" = "4" ]; then
-            echo "A disc is inserted. Ejecting..."
-            eject
-        fi
+    if lsblk | grep -q sr0; then
+        echo "A disc is inserted. Ejecting..."
+        eject
     fi
 
     echo -e "${BLUE}Unistalling Batocera Disc Player service...${NC}"
